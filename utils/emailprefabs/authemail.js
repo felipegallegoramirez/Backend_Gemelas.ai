@@ -29,7 +29,7 @@ const messageLogin = (correo,id,code) => {
 </footer>`,
 [{
     filename: 'logoPolinet.png',
-    path: __dirname + '/logoPolinet.png',
+    path: __dirname + '/logo.png',
     cid: 'unique@kreata.ee' 
 }])
   };

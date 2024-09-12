@@ -6,6 +6,9 @@ const StorageScheme = new mongoose.Schema(
     name: {
       type: String,
     },
+    descriptions: {
+      type: String,
+    },
     square:[{
       id: {
         type: String,
@@ -63,6 +66,9 @@ const StorageScheme = new mongoose.Schema(
       },
     }],
     data:[{
+      square_id: {
+        type: String,
+      },
       type: {
         type: String,
       },

@@ -41,7 +41,9 @@ UserCtrl.createUser = async (req, res, next) => {
             rol,
             cedula,
             code,
-            points} = req.body;
+            description,
+            skills
+            } = req.body;
 
         const body = { name,
             email,
@@ -50,7 +52,8 @@ UserCtrl.createUser = async (req, res, next) => {
             //files_id:['default.png',''],
             cedula,
             code,
-            points};
+            description,
+            skills};
         await messageRegister(email, name)
         var save= await User.create(body);
         res.status(200).send(save)

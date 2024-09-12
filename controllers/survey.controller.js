@@ -37,7 +37,7 @@ SurveyCtrl.createSurvey = async (req, res, next) => {
             description,
             data,
             points,
-            event_id
+            user_id
         } = req.body;
 
         const body = { name,

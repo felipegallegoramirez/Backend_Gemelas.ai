@@ -11,6 +11,9 @@ const StorageScheme = new mongoose.Schema(
     },
     data: [
       {
+        question: {
+          type: String,
+        },
         type: {
           type: String,
         },

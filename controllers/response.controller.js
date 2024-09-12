@@ -43,25 +43,11 @@ ResponseCtrl.createResponse = async (req, res, next) => {
         const { 
             answers,
             state,
+            user_id,
             survey_id,
-            events_id,
-            email,
-            name,
-            cedula, } = req.body;
+            employe_id } = req.body;
 
-            const userbody = { name,
-                email,
-                name,
-                rol:'User',
-                cedula,
-                points:0};
-
-            var user = await User.findOne({ email: userbody.email });
-            if (!user) {
-                var user = await User.create(userbody)
-            }
-
-
+             
             let survey = await Survey.findById(survey_id)
             let open = true
             let count = 0
@@ -86,35 +72,6 @@ ResponseCtrl.createResponse = async (req, res, next) => {
             }else{
                 state = 'open'
             }
-            event = await Event.findById(events_id)
-            if(!event){
-                res.status(400).send({msg:'Evento no encontradp'})
-            }
-            reward = await Reward.findById(event.reward_id)
-
-            let index = reward.users.findIndex(objeto => objeto.user_id === user._id);
-
-            if (index === -1) {
-                reward.users.push({
-                    user_id: user._id,
-                    user_name: user.name,
-                    user_email: user.email,
-                    points: points
-                });
-              } else {
-                reward.users[index]+=points
-            }
-
-
-
-
-            user.points +=  points
-
-
-            await User.findByIdAndUpdate(user._id,user)
-            await reward.findById(reward._id,reward)
-
-            await User.findByIdAndUpdate(user_id,user)
 
             let calification = ( count / survey.data.length) * 100
 
@@ -128,7 +85,7 @@ ResponseCtrl.createResponse = async (req, res, next) => {
             state,
             user_id,
             survey_id,
-            events_id};
+            employe_id};
         var save= await Response.create(body);
         res.status(200).send(save)
     }catch(err){
@@ -139,7 +96,7 @@ ResponseCtrl.createResponse = async (req, res, next) => {
 
 };
 
-
+/*
 ResponseCtrl.QualifedResponse = async (req, res, next) => {
     try{
         const { id , count } = req.params;
@@ -182,7 +139,7 @@ ResponseCtrl.QualifedResponse = async (req, res, next) => {
     }catch(err){
         res.status(400).send(err)
     }
-};
+};*/
 
 ResponseCtrl.editResponse = async (req, res, next) => {
     try{
