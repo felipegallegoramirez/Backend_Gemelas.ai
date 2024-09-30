@@ -1,11 +1,6 @@
 const Response = require("../models/response");
 const Survey = require("../models/survey");
-const Event = require("../models/event");
-const Reward = require("../models/reward");
-const user = require("../models/user");
-const User = require("../models/user");
-const event = require("../models/event");
-const reward = require("../models/reward");
+
 const ResponseCtrl = {};
 
 ResponseCtrl.getResponses = async (req, res, next) => {

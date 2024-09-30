@@ -41,6 +41,7 @@ UserCtrl.createUser = async (req, res, next) => {
             rol,
             cedula,
             code,
+            charge,
             description,
             skills
             } = req.body;
@@ -52,6 +53,7 @@ UserCtrl.createUser = async (req, res, next) => {
             //files_id:['default.png',''],
             cedula,
             code,
+            charge,
             description,
             skills};
         await messageRegister(email, name)

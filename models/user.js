@@ -26,6 +26,9 @@ const StorageScheme = new mongoose.Schema(
     charge: {
       type: String,
     },
+    description: {
+      type: String
+    },
     skills: [{
       type: String,
     }],
